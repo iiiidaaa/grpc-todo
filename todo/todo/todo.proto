@@ -1,0 +1,70 @@
+syntax = "proto3";
+
+package todo;
+
+//import "google/api/annotations.proto";
+
+// TODO管理
+service Todo {
+  // TODOの検索
+  rpc RetrieveTodo (SearchRequest) returns (TodoReply) {}
+  // TODOの一覧
+  rpc ListTodos (SearchRequest) returns (stream TodoReply) {}
+  // TODOの登録
+  rpc RegistTodo (TodoRequest) returns (TodoReply) {}
+  // TODOの複数登録
+  rpc RegistTodos (stream TodoRequest) returns (ResultReply) {}
+  // TODOの削除
+  rpc DeleteTodo (DeleteRequest) returns (ResultReply) {}
+  // リクエストユーザーのTODOの全件削除
+  rpc DeleteTodoAll (DeleteRequest) returns (ResultReply) {}
+  // ユーザーの登録
+  rpc RegistUser (UserRequest) returns (UserReply) {}
+  // ユーザーの削除
+  rpc DeleteUser (DeleteRequest) returns (ResultReply) {}
+  // ユーザーのログイン
+  rpc LoginUser (UserRequest) returns (UserReply) {}
+}
+
+message ResultReply{
+  string message = 1;
+}
+
+message SearchRequest {
+//  int32 id = 1;
+  string token = 2;
+  string id = 3;
+
+}
+
+message TodoRequest {
+//  int32 id = 1;
+  string content = 2;
+  string token = 3;
+  string todoId = 4;
+}
+
+message DeleteRequest{
+//  int32 id = 1;
+  string token = 2;
+  string id = 3;
+}
+
+message TodoReply {
+//  int32 id = 1;
+  string content = 2;
+  string id = 3;
+  string message = 4;
+}
+
+message UserRequest {
+  string username = 1;
+  string password = 2;
+  string email = 3;
+}
+
+message UserReply {
+//  int32 id = 1;
+  string username = 2;
+//  string token = 3;
+}
