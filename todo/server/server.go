@@ -24,7 +24,7 @@ type TodoServer struct {
 }
 
 func initFirebase() (*Auth, *Todo) {
-	opt := option.WithCredentialsFile("{/path/to/your-service-account-file.json}")
+	opt := option.WithCredentialsFile("/go/src/todo/service-account-file.json")
 	ctx := context.Background()
 	app, err := firebase.NewApp(ctx, nil, opt)
 	if err != nil {
