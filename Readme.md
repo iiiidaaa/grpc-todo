@@ -24,7 +24,7 @@ firestoreを操作する用のclientスクリプトを動作させるために�
 
 ## firestoreの利用
 `client/main.go`の以下の変数を上で取得したIdTokenに置き換えてください
-```accessToken = "{youraccesstoken}"```
+```accessToken = "{your_idtoken}"```
 
 その後、以下のコマンドを実行することでfirestoreへデータの追加・削除が実施可能です  
 (その一環でユーザーを作ったりもします)  
